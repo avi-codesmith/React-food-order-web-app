@@ -1,6 +1,6 @@
 import logo from "../assets/logo.jpg";
 
-export default function Header({ itemAdded }) {
+export default function Header() {
   return (
     <>
       <header id="main-header">
@@ -8,7 +8,7 @@ export default function Header({ itemAdded }) {
           <img src={logo} alt="Food logo" />
           <h1>React food</h1>
         </div>
-        <button>Cart ({itemAdded})</button>
+        <button>Cart (0)</button>
       </header>
     </>
   );

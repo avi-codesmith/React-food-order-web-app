@@ -105,11 +105,17 @@ h1 {
   display: inline-block;
   background-color: #312c1d;
   color: #ffc404;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: bold;
   padding: 0.5rem 2rem;
   margin: 0;
   border-radius: 4px;
+  font-family: sans-serif !important;
+}
+
+.meal-item-price del {
+  margin-right: 1rem;
+  color: #ddd;
 }
 
 .meal-item-actions {
