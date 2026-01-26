@@ -1,16 +1,41 @@
-# React + Vite
+# 🍔 Food Order Web App (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **Food Order Web Application** built using **React** with a minimal and clean UI.  
+This project is designed as a **practice project to cover most major React concepts**
 
-Currently, two official plugins are available:
+🚀 **Live Demo:**  
+👉 https://reactjsfood.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 📋 Display food items with price and description
+- ➕ Add items to cart
+- ➖ Increase / decrease item quantity
+- 🗑 Remove items from cart
+- 🧮 Automatic total price calculation
+- 🛒 Minimal UI checkout form
+- ⚡ Fast and responsive UI
+- ♻️ Reusable React components
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 React Concepts Covered
+
+This project is great for practicing:
+
+- Functional Components
+- Props & State
+- `useState, useContext, useReducer, useEffect, useMemo, memo, useActionState` many more... Hooks
+- Conditional Rendering
+- Event Handling
+- And many more...
+- Lifting State Up
+- List Rendering & Keys
+- Controlled Form Inputs
+- Basic Cart Logic
+- Component Reusability
+- Best Preactices
+
+---
