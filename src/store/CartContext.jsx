@@ -10,7 +10,7 @@ const CartContex = createContext({
 function handleReducer(state, action) {
   if (action.type === "ADD_ITEM") {
     const existingItemIndex = state.items.findIndex(
-      (item) => item.id === action.id
+      (item) => item.id === action.item.id
     );
 
     const updatedItems = [...state.items];
@@ -31,7 +31,7 @@ function handleReducer(state, action) {
 
   if (action.type === "REMOVE_ITEM") {
     const existingItemIndex = state.items.findIndex(
-      (item) => item.id === action.item.id
+      (item) => item.id === action.id
     );
 
     const existingItem = state.items[existingItemIndex];
@@ -55,7 +55,10 @@ function handleReducer(state, action) {
 }
 
 export function CartContexProvider({ children }) {
-  const [cart, dispatch] = useReducer(handleReducer, { items: [] });
+  const [cart, dispatch] = useReducer(handleReducer, {
+    items: [],
+    quantity: 0,
+  });
 
   function addItem(item) {
     dispatch({
