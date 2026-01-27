@@ -1,5 +1,8 @@
 # 🍔 Food Order Web App (React)
 
+🟢<font color="green"><b>Work in Progress...</b></font>
+
+
 A simple **Food Order Web Application** built using **React** with a minimal and clean UI.  
 This project is designed as a **practice project to cover most major React concepts**
 
