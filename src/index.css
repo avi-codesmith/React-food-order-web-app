@@ -281,3 +281,16 @@ h1 {
   color: #ffc404;
   text-align: center;
 }
+
+.error {
+  color: #fff;
+  background-color: red;
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border: 1.5px solid #fff;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}

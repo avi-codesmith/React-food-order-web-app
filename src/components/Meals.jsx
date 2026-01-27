@@ -18,7 +18,7 @@ export default function MealsData() {
         if (!response.ok) {
           setError(true);
           setloading(false);
-          throw new Error("ops! something went wrong");
+          throw new Error(`Ops! API Error: ${response.status}`);
         }
 
         const data = await response.json();
@@ -26,7 +26,7 @@ export default function MealsData() {
       } catch (error) {
         setError(true);
         setloading(false);
-        throw new Error("ops! something went wrong");
+        throw new Error("404 error please check your internet connection");
       }
       setloading(false);
     }
@@ -38,17 +38,11 @@ export default function MealsData() {
     <>
       {loading && <p className="load">loading please wait...</p>}
       {error ? (
-        "Ops! Something went wrong pls try again"
+        <p className="error">404 error please check your internet connection</p>
       ) : (
         <div id="meals">
           {getData.map((meal) => (
-            <MealsCard
-              key={meal.id}
-              name={meal.name}
-              price={meal.price}
-              description={meal.description}
-              img={meal.image}
-            />
+            <MealsCard key={meal.id} meal={meal} />
           ))}
         </div>
       )}
