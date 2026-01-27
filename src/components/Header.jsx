@@ -39,8 +39,12 @@ export default function Header() {
         <ul>
           {items.map((item) => (
             <>
-              <img className="food-s1" src={`${imgSrc}${item.image}`} /> x{" "}
-              {item.quantity}
+              <img
+                className="food-s1"
+                alt={item.name}
+                src={`${imgSrc}${item.image}`}
+              />{" "}
+              x {item.quantity}
               <li className="cart-item" key={item.id}>
                 {item.name}
               </li>
