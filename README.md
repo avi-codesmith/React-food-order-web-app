@@ -30,15 +30,15 @@ This project is great for practicing:
 
 - Functional Components
 - Props & State
-- `useState, useContext, useReducer, useEffect, useMemo, memo, useActionState` many more... Hooks
+- `useState, useContext, useReducer, useEffect, useMemo, memo, useActionState,` many more... Hooks
 - Conditional Rendering
 - Event Handling
-- And many more...
 - Lifting State Up
 - List Rendering & Keys
 - Controlled Form Inputs
 - Basic Cart Logic
 - Component Reusability
 - Best Preactices
+- And many more...
 
 ---
