@@ -1,6 +1,6 @@
 # 🍔 Food Order Web App (React)
 
-🟢<font color="green"><b>Work in Progress...</b></font>
+## 🟢 <font color="green"><b>Work in Progress...</b></font>
 
 
 A simple **Food Order Web Application** built using **React** with a minimal and clean UI.  
