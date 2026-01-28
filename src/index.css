@@ -1,17 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Lato:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   box-sizing: border-box;
 }
 
+html {
+  background: #29251c;
+}
+
 body {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(#29251c, #2c2306);
   color: #d9e2f1;
   min-height: 100vh;
+}
+
+*::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ffab04;
+  border-radius: 999px;
 }
 
 #main-header {
@@ -40,11 +56,9 @@ body {
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
-  font-family: "Lato", sans-serif;
 }
 
 h1 {
-  font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
@@ -110,7 +124,6 @@ h1 {
   padding: 0.5rem 2rem;
   margin: 0;
   border-radius: 4px;
-  font-family: sans-serif !important;
 }
 
 .meal-item-price del {
@@ -130,6 +143,9 @@ h1 {
   list-style: none;
   margin: 0.5rem 0;
   padding: 0;
+  max-height: 25rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .modal-actions {
@@ -150,7 +166,7 @@ h1 {
 .cart-total {
   display: flex;
   justify-content: flex-end;
-  margin: 2rem 0;
+  margin: 1rem 0;
   font-size: 1.15rem;
   font-weight: bold;
   color: #46443c;
@@ -159,11 +175,13 @@ h1 {
 .cart-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   margin: 0.5rem 0;
 }
 
-.cart-item p {
+.cart-item .item {
+  display: flex;
+  flex-direction: column;
   margin: 0;
 }
 
@@ -171,6 +189,7 @@ h1 {
   display: flex;
   gap: 1rem;
   align-items: center;
+  padding-right: 1rem;
 }
 
 .cart-item-actions button {
@@ -296,7 +315,8 @@ h1 {
 }
 
 .food-s1 {
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
 }
