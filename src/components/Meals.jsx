@@ -36,7 +36,12 @@ export default function MealsData() {
 
   return (
     <>
-      {loading && <p className="load">loading please wait...</p>}
+      {loading && (
+        <div className="loading">
+          <p className="loader"></p> <p className="load-text">Loading...</p>
+        </div>
+      )}
+
       {error ? (
         <p className="error">404 error please check your internet connection</p>
       ) : (

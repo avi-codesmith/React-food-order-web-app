@@ -13,8 +13,8 @@ export default function CartItem({
     <li className="cart-item">
       <p className="item">
         <img className="food-s1" alt={name} src={imgSrc + image} />
-        {name} - {quantity} × ₹
-        {Math.floor(price * 91.58).toLocaleString("en-IN")}
+        {name} - ₹{Math.floor(price * 91.58).toLocaleString("en-IN")} ×{" "}
+        {quantity}
       </p>
       <p className="cart-item-actions">
         <button onClick={onDec}>-</button>

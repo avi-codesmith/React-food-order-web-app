@@ -21,7 +21,10 @@ export default function Header() {
       <header id="main-header">
         <div id="title">
           <img src={logo} alt="Food logo" />
-          <h1>React food</h1>
+          <h1>
+            React food
+            <p>Tasty bite, cheap price</p>
+          </h1>
         </div>
         <button onClick={handleOpenCart}>Cart ({totalCartItems})</button>
       </header>
