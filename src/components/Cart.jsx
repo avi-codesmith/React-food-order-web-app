@@ -33,7 +33,7 @@ export default function Cart() {
     <Modal
       className="cart"
       open={progress === "cart"}
-      onClose={progress === "cart" && handleCloseCart}
+      onClose={progress === "cart" ? handleCloseCart : null}
     >
       <h2>🛒 Your {items.length > 0 ? "Cart" : "cart is empty"}</h2>
       {items.length === 0 && <p>Please add items to cart.</p>}
