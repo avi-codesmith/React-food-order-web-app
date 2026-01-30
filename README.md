@@ -8,7 +8,7 @@ This project is designed as a **practice project to cover most major React conce
 
 ---
 
-## Step 1: Add to cart your taste
+## Step 1: Add your taste to cart
 <img width="500" alt="one1" src="https://github.com/user-attachments/assets/791ef780-a44e-4da0-a445-d0ec9d6a70bd" />
 
 ---
