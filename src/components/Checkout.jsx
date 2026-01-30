@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useActionState } from "react";
 
 import Modal from "./Modal";
 import CartContext from "../store/CartContext";
@@ -17,13 +17,10 @@ export default function Checkout() {
   const { items, onFinish } = use(CartContext);
   const { progress, hideCheckout } = use(UserProgressContext);
 
-  const {
-    data,
-    error,
-    loading: isSending,
-    handleHttp,
-    clearData,
-  } = useHttp("http://localhost:3000/orders", formConfig);
+  const { data, error, handleHttp, clearData } = useHttp(
+    "http://localhost:3000/orders",
+    formConfig
+  );
 
   const cartTotal = items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
@@ -47,7 +44,7 @@ export default function Checkout() {
     clearData();
   }
 
-  async function handleFormAction(fd) {
+  async function handleFormAction(prev, fd) {
     const data = Object.fromEntries(fd.entries());
 
     await handleHttp(
@@ -59,6 +56,11 @@ export default function Checkout() {
       })
     );
   }
+
+  const [formState, formAction, pending] = useActionState(
+    handleFormAction,
+    null
+  );
 
   let actions = (
     <>
@@ -73,7 +75,7 @@ export default function Checkout() {
     </>
   );
 
-  if (isSending) {
+  if (pending) {
     actions = <span>Please wait, Submiting you order...</span>;
   }
 
@@ -108,7 +110,7 @@ export default function Checkout() {
   return (
     <>
       <Modal open={progress === "checkout"} onClose={handleCloseCheckout}>
-        <form action={handleFormAction}>
+        <form action={formAction}>
           <h2>Checkout</h2>
           <p>Total Amount: {totalAmount}</p>
           <Input label="Full name" type="text" id="name" />
