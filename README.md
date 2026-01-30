@@ -9,22 +9,22 @@ This project is designed as a **practice project to cover most major React conce
 ---
 
 ## Step 1: Add your taste to cart
-<img width="500" alt="one1" src="https://github.com/user-attachments/assets/791ef780-a44e-4da0-a445-d0ec9d6a70bd" />
+<img width="800" alt="one1" src="https://github.com/user-attachments/assets/791ef780-a44e-4da0-a445-d0ec9d6a70bd" />
 
 ---
 
 ## Step 2: Click Cart button then click checkout button
-<img width="500" alt="two2" src="https://github.com/user-attachments/assets/728d3890-ec2e-4012-bb41-d74da486a3d2" />
+<img width="800" alt="two2" src="https://github.com/user-attachments/assets/728d3890-ec2e-4012-bb41-d74da486a3d2" />
 
 ---
 
 ## Step 3: Enter your details and Click submit button
-<img width="500" alt="three3" src="https://github.com/user-attachments/assets/2a97cfb1-e924-4818-bc80-6af6eb71c0f1" />
+<img width="800" alt="three3" src="https://github.com/user-attachments/assets/2a97cfb1-e924-4818-bc80-6af6eb71c0f1" />
 
 ---
 
 ## Step 4: Order comfirm! At your door steps with in 10 minutes
-<img width="500" alt="four4" src="https://github.com/user-attachments/assets/9286e8ac-8a24-4068-bed5-3a28867a4ac4" />
+<img width="800" alt="four4" src="https://github.com/user-attachments/assets/9286e8ac-8a24-4068-bed5-3a28867a4ac4" />
 
 ---
 
