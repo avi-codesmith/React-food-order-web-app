@@ -13,17 +13,17 @@ This project is designed as a **practice project to cover most major React conce
 
 ---
 
-## Step 2: If you are agree then click Checkout button
+## Step 2: Click Cart button then click checkout button
 <img width="500" alt="two2" src="https://github.com/user-attachments/assets/728d3890-ec2e-4012-bb41-d74da486a3d2" />
 
 ---
 
-## Step 3: Enter your details and Submit button
+## Step 3: Enter your details and Click submit button
 <img width="500" alt="three3" src="https://github.com/user-attachments/assets/2a97cfb1-e924-4818-bc80-6af6eb71c0f1" />
 
 ---
 
-## Step 4: Order comfirm!, At your door steps with in 10 minutes
+## Step 4: Order comfirm! At your door steps with in 10 minutes
 <img width="500" alt="four4" src="https://github.com/user-attachments/assets/9286e8ac-8a24-4068-bed5-3a28867a4ac4" />
 
 ---
