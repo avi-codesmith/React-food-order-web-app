@@ -4,6 +4,7 @@ const CartContext = createContext({
   items: [],
   addItem: () => {},
   removeItem: () => {},
+  onFinish: () => {},
 });
 
 function cartReducer(state, action) {
@@ -55,6 +56,10 @@ function cartReducer(state, action) {
     return { items: updatedItems };
   }
 
+  if (action.type === "FINISH") {
+    return { items: [] };
+  }
+
   return state;
 }
 
@@ -71,12 +76,17 @@ export function CartContextProvider({ children }) {
     dispatch({ type: "REMOVE_ITEM", id });
   }
 
+  function onFinish() {
+    dispatch({ type: "FINISH" });
+  }
+
   return (
     <CartContext.Provider
       value={{
         items: cartState.items,
         addItem,
         removeItem,
+        onFinish,
       }}
     >
       {children}

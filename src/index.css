@@ -383,6 +383,10 @@ h1 p {
   font-size: 1.2rem;
 }
 
+.error-text {
+  color: red;
+}
+
 .food-s1 {
   height: 3rem;
   width: 3rem;

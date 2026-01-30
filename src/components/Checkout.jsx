@@ -14,7 +14,7 @@ const formConfig = {
 };
 
 export default function Checkout() {
-  const { items } = use(CartContext);
+  const { items, onFinish } = use(CartContext);
   const { progress, hideCheckout } = use(UserProgressContext);
 
   const {
@@ -22,6 +22,7 @@ export default function Checkout() {
     error,
     loading: isSending,
     handleHttp,
+    clearData,
   } = useHttp("http://localhost:3000/orders", formConfig);
 
   const cartTotal = items.reduce(
@@ -38,6 +39,12 @@ export default function Checkout() {
 
   function handleCloseCheckout() {
     hideCheckout();
+  }
+
+  function handleOnFinish() {
+    hideCheckout();
+    onFinish();
+    clearData();
   }
 
   function handleSubmit(event) {
@@ -73,6 +80,34 @@ export default function Checkout() {
     actions = <span>Please wait, Submiting you order...</span>;
   }
 
+  if (data && !error) {
+    return (
+      <Modal open={progress === "checkout"} onClose={handleCloseCheckout}>
+        <h2 className="green">Order Submited Sucessfully!</h2>
+        <p>
+          ● At your door step with in{" "}
+          <span className="green">
+            <strong>10 minutes.</strong>
+          </span>
+        </p>
+        <p>
+          ● Payment method:
+          <span>
+            <strong className="green"> Cash on delivery.</strong>
+          </span>
+        </p>
+        <p className="modal-actions">
+          <button className="text-button" onClick={handleOnFinish}>
+            Okay
+          </button>
+          <button className="button" onClick={handleOnFinish}>
+            Order more!
+          </button>
+        </p>
+      </Modal>
+    );
+  }
+
   return (
     <>
       <Modal open={progress === "checkout"} onClose={handleCloseCheckout}>
@@ -86,7 +121,12 @@ export default function Checkout() {
             <Input label="Postal code" type="number" id="postal-code" />
             <Input label="City" type="text" id="city" />
           </div>
-          <p className="modal-actions">{actions}</p>
+          {error && (
+            <p className="error-text">
+              Ops! Something went wrong, please try again.
+            </p>
+          )}
+          <p className="modal-actions">{!error && actions}</p>
         </form>
       </Modal>
     </>

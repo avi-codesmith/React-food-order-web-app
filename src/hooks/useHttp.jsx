@@ -17,6 +17,10 @@ export default function useHttp(url, config, initialData) {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
+  function clearData() {
+    setData(initialData);
+  }
+
   const handleHttp = useCallback(
     async function handleHttp(data) {
       setLoading(true);
@@ -41,5 +45,6 @@ export default function useHttp(url, config, initialData) {
     error,
     loading,
     handleHttp,
+    clearData,
   };
 }
