@@ -1,14 +1,28 @@
+import { use } from "react";
+
 import Modal from "./Modal";
-import { use, useState } from "react";
 import CartContext from "../store/CartContext";
 import UserProgressContext from "../store/UserProgress";
 import Input from "./Input";
+import useHttp from "../hooks/useHttp";
+
+const formConfig = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+};
 
 export default function Checkout() {
-  const [error, setError] = useState(false);
-
   const { items } = use(CartContext);
   const { progress, hideCheckout } = use(UserProgressContext);
+
+  const {
+    data,
+    error,
+    loading: isSending,
+    handleHttp,
+  } = useHttp("http://localhost:3000/orders", formConfig);
 
   const cartTotal = items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
@@ -32,26 +46,31 @@ export default function Checkout() {
     const fd = new FormData(event.target);
     const data = Object.fromEntries(fd.entries());
 
-    try {
-      const response = fetch("http://localhost:3000/ordersdd", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    handleHttp(
+      JSON.stringify({
+        order: {
+          items: items,
+          customer: data,
         },
-        body: JSON.stringify({
-          order: {
-            items: items,
-            customer: data,
-          },
-        }),
-      });
+      })
+    );
+  }
 
-      if (!response.ok) {
-        setError(true);
-      }
-    } catch (error) {
-      setError(true);
-    }
+  let actions = (
+    <>
+      <button
+        type="button"
+        onClick={handleCloseCheckout}
+        className="text-button"
+      >
+        Close
+      </button>
+      <button className="button">Submit Order</button>
+    </>
+  );
+
+  if (isSending) {
+    actions = <span>Please wait, Submiting you order...</span>;
   }
 
   return (
@@ -67,16 +86,7 @@ export default function Checkout() {
             <Input label="Postal code" type="number" id="postal-code" />
             <Input label="City" type="text" id="city" />
           </div>
-          <p className="modal-actions">
-            <button
-              type="button"
-              onClick={handleCloseCheckout}
-              className="text-button"
-            >
-              Close
-            </button>
-            <button className="button">Submit Order</button>
-          </p>
+          <p className="modal-actions">{actions}</p>
         </form>
       </Modal>
     </>

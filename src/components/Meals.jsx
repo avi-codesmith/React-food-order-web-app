@@ -1,52 +1,42 @@
-import { useState, useEffect } from "react";
-
+import useHttp from "../hooks/useHttp";
 import MealsCard from "./MealsCard";
 
+const initialConfig = {};
+
 export default function MealsData() {
-  const [getData, setGetData] = useState([]);
-  const [loading, setloading] = useState(false);
-  const [error, setError] = useState(false);
+  const { data, error, loading } = useHttp(
+    "https://raw.githubusercontent.com/avi-codesmith/React-food-order-web-app/main/backend/data/available-meals.json",
+    initialConfig,
+    []
+  );
 
-  useEffect(() => {
-    async function fetchData() {
-      setloading(true);
-      try {
-        const response = await fetch(
-          "https://raw.githubusercontent.com/avi-codesmith/React-food-order-web-app/main/backend/data/available-meals.json"
-        );
+  if (loading) {
+    return (
+      <div className="loading">
+        <p className="loader"></p> <p className="load-text">Loading...</p>
+      </div>
+    );
+  }
 
-        if (!response.ok) {
-          setError(true);
-          setloading(false);
-          throw new Error(`Ops! API Error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setGetData(data);
-      } catch (error) {
-        setError(true);
-        setloading(false);
-        throw new Error("404 error please check your internet connection");
-      }
-      setloading(false);
-    }
-
-    fetchData();
-  }, []);
+  if (!data) {
+    return (
+      <div className="loading">
+        <p className="load-text">No meals found.</p>
+      </div>
+    );
+  }
 
   return (
     <>
-      {loading && (
-        <div className="loading">
-          <p className="loader"></p> <p className="load-text">Loading...</p>
-        </div>
-      )}
-
       {error ? (
-        <p className="error">404 error please check your internet connection</p>
+        <p className="error">
+          ⚠️ Ops! Something went wrong
+          <p>● Please check your internet connection</p>
+          <p>● Or try reload the website</p>
+        </p>
       ) : (
         <div id="meals">
-          {getData.map((meal) => (
+          {data.map((meal) => (
             <MealsCard key={meal.id} meal={meal} />
           ))}
         </div>

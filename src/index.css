@@ -167,6 +167,11 @@ h1 p {
   color: #1d1a16;
 }
 
+.modal-actions .text-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .modal-actions .text-button:hover,
 .modal-actions .text-button:active {
   color: #312c1d;
@@ -383,4 +388,12 @@ h1 p {
   width: 3rem;
   border-radius: 8px;
   margin-bottom: 0.4rem;
+}
+
+.btn-loader {
+  border: 3px solid #fdf2e9 !important;
+  border-top-color: #555 !important;
+  height: 1.4rem;
+  width: 1.4rem;
+  margin-left: 2rem;
 }
