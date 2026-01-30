@@ -47,13 +47,10 @@ export default function Checkout() {
     clearData();
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const fd = new FormData(event.target);
+  async function handleFormAction(fd) {
     const data = Object.fromEntries(fd.entries());
 
-    handleHttp(
+    await handleHttp(
       JSON.stringify({
         order: {
           items: items,
@@ -111,7 +108,7 @@ export default function Checkout() {
   return (
     <>
       <Modal open={progress === "checkout"} onClose={handleCloseCheckout}>
-        <form onSubmit={handleSubmit}>
+        <form action={handleFormAction}>
           <h2>Checkout</h2>
           <p>Total Amount: {totalAmount}</p>
           <Input label="Full name" type="text" id="name" />
